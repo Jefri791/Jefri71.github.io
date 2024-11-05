@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock with Falling Stars and Meteors</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background-color: black;
+      position: relative;
+    }
+
+    .name {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .message {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      animation: scrollText 10s linear infinite, colorChange 5s infinite;
+    }
+
+    .digital-clock {
+      font-size: 24px;
+      font-weight: bold;
+      background-color: rgba(34, 34, 34, 0.8);
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      animation: colorChange 1s infinite;
+      margin-bottom: 15px;
+    }
+
+    .image {
+      margin-bottom: 15px;
+      width: 300px; /* Ukuran gambar diperbesar */
+      height: auto;
+    }
+
+    audio {
+      width: 350px; /* Ukuran audio diperkecil */
+      margin-bottom: 2px;
+    }
+
+    @keyframes colorChange {
+      0% { color: red; }
+      20% { color: orange; }
+      40% { color: yellow; }
+      60% { color: green; }
+      80% { color: blue; }
+      100% { color: violet; }
+    }
+
+    @keyframes scrollText {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="name">made by Jefri</div>
+  <img src="https://f.top4top.io/s_3231fonyf0.jpg" alt="Gambar di bawah nama Jefri" class="image"> <!-- Gambar di bawah nama -->
+  <audio consol autoplay ="background-music" src="https://g.top4top.io/m_3231fgqi21.mp3" controls autoplay loop></audio> <!-- Audio di bawah gambar -->
+  <div class="message">BAHAGIA SEPERTI APA YANG DICARI,JIKA YANG SUDAH ADA TAK PERNAH DISYUKURI.</div>
+  <div class="digital-clock" id="clock">00:00:00</div>
+  
+  <script>
+    function updateClock() {
+      const now = new Date();
+      let hours = String(now.getHours()).padStart(2, '0');
+      let minutes = String(now.getMinutes()).padStart(2, '0');
+      let seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
